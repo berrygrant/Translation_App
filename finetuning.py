@@ -7,7 +7,7 @@ import streamlit as st
 from openai import OpenAI
 
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=st.secrets["OPENAI"]["api_key"])
 
 def create_finetune_files(goldens: pd.DataFrame):
     """

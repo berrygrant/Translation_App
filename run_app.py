@@ -3,15 +3,12 @@ import streamlit as st
 import pandas as pd
 from openai import OpenAI
 import httpx
-from evaluation import (
-    evaluate_translation_comparison,
-    run_optimization
-)
+from evaluation import evaluate_translation_comparison, run_optimization
 from translation import openai_translate
 from finetuning import fine_tune_openai, get_recent_finetuning_jobs
 
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=st.secrets["OPENAI"]["api_key"])
 
 st.set_page_config(page_title="SPA 3200 Translation App", page_icon=":speech_balloon:")
 

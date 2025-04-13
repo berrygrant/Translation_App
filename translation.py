@@ -1,8 +1,9 @@
 # translation.py
 import os
 from openai import OpenAI
+import streamlit as st
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=st.secrets["OPENAI"]["api_key"])
 
 def openai_translate(text, model="gpt-4o-mini-2024-07-18"):
     prompt = f"Translate the following Spanish text to English:\n\n{text}"
